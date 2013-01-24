@@ -16,6 +16,7 @@
 
 package com.android.launcher2;
 
+import android.appwidget.AppWidgetHostView;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
@@ -23,6 +24,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
+import org.chameleonos.chaoslauncher.preference.PreferencesProvider;
 
 import com.android.launcher.R;
 
@@ -45,6 +47,7 @@ public class PagedViewCellLayout extends ViewGroup implements Page {
     private int mWidthGap;
     private int mHeightGap;
     private int mMaxGap;
+    private float mChildrenScale = 1f;
     protected PagedViewCellLayoutChildren mChildren;
 
     public PagedViewCellLayout(Context context) {
@@ -70,6 +73,9 @@ public class PagedViewCellLayout extends ViewGroup implements Page {
         mCellCountY = LauncherModel.getCellCountY();
         mOriginalWidthGap = mOriginalHeightGap = mWidthGap = mHeightGap = -1;
         mMaxGap = resources.getDimensionPixelSize(R.dimen.apps_customize_max_gap);
+
+        mChildrenScale = (float) PreferencesProvider.Interface.General.getIconScale(
+                getResources().getInteger(R.integer.app_icon_scale_percentage)) / 100f;
 
         mChildren = new PagedViewCellLayoutChildren(context);
         mChildren.setCellDimensions(mCellWidth, mCellHeight);
@@ -110,6 +116,9 @@ public class PagedViewCellLayout extends ViewGroup implements Page {
             // mean that it spans the extent of the CellLayout
             if (lp.cellHSpan < 0) lp.cellHSpan = mCellCountX;
             if (lp.cellVSpan < 0) lp.cellVSpan = mCellCountY;
+
+            child.setScaleX(getChildrenScale());
+            child.setScaleY(getChildrenScale());
 
             child.setId(childId);
             mChildren.addView(child, index, lp);
@@ -157,6 +166,14 @@ public class PagedViewCellLayout extends ViewGroup implements Page {
     @Override
     public int indexOfChildOnPage(View v) {
         return mChildren.indexOfChild(v);
+    }
+
+    public void setChildrenScale(float childrenScale) {
+        mChildrenScale = childrenScale;
+    }
+
+    public float getChildrenScale() {
+        return mChildrenScale;
     }
 
     public int getCellCountX() {
