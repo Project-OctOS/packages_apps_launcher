@@ -28,6 +28,8 @@
     <string name="uid_name">Android Core Apps</string>
     <!-- Default folder name -->
     <string name="folder_name"></string>
+    <!-- The Google Apps folder name -->
+    <string name="google_apps_folder_name">Google</string>
     <!-- Title of dialog that appears after user selects Wallpaper from menu -->
     <string name="chooser_wallpaper">Choose wallpaper from</string>
     <!-- Button label on Wallpaper Gallery screen; user selects this button to set a specific wallpaper -->
@@ -154,7 +156,7 @@ s -->
     <string name="menu_help">Help</string>
 
     <!-- URL pointing to help text. If empty, no link to help will be created [DO NOT TRANSLATE] -->
-    <string name="help_url" translatable="false"></string>
+    <string name="help_url" translatable="false">http://www.google.com/support/mobile/?p=help_home</string>
 
     <!--  Strings for the contextual action bar (CAB) in All Apps -->
     <skip />
@@ -201,6 +203,12 @@ s -->
 
     <!-- Text to show user in place of a gadget when we can't display it properly -->
     <string name="gadget_error_text">Problem loading widget</string>
+    
+    <!-- URL to use when detecting the current default browser. 
+         Attempts to mimic homepage_base in Browser; {CID} should be replaced
+         by the client-id, e.g. "android-google". -->
+    <string name="default_browser_url" translatable="false">
+        http://www.google.com/m?client=ms-{CID}&amp;source=android-home-hotseat</string>
 
     <!-- Text to inform the user that they can't uninstall a system application -->
     <string name="uninstall_system_app_text">This is a system app and can\'t be uninstalled.</string>
