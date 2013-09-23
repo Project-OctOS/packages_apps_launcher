@@ -20,7 +20,11 @@ APPLICATION_COMPONENTS = [
   "com.android.settings/com.android.settings.Settings",
   "com.android.mms/com.android.mms.ui.ConversationList",
   "com.android.contacts/com.android.contacts.activities.PeopleActivity",
-  "com.android.dialer/com.android.dialer.DialtactsActivity"
+  "com.android.dialer/com.android.dialer.DialtactsActivity",
+  "com.android.gallery3d/com.android.camera.CameraActivity",
+  "com.android.camera/com.android.camera.CameraActivity",
+  "com.android.gallery3d/com.android.gallery3d.app.GalleryAppImpl",
+  "com.android.chrome/com.google.android.apps.chrome.Main"
 ]
 
 def usage():
