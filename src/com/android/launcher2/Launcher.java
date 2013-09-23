@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2008 The Android Open Source Project
  *
@@ -1686,8 +1685,7 @@ public final class Launcher extends Activity
         Intent settings = new Intent(android.provider.Settings.ACTION_SETTINGS);
         settings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-        String helpUrl = getString(R.string.help_url);
-        Intent help = new Intent(Intent.ACTION_VIEW, Uri.parse(helpUrl));
+        Intent help = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.help_url)));
         help.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                 | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
@@ -1702,11 +1700,10 @@ public final class Launcher extends Activity
             .setIcon(android.R.drawable.ic_menu_preferences)
             .setIntent(settings)
             .setAlphabeticShortcut('P');
-        if (!helpUrl.isEmpty()) {
-            menu.add(0, MENU_HELP, 0, R.string.menu_help)
-                .setIcon(android.R.drawable.ic_menu_help)
-                .setIntent(help)
-                .setAlphabeticShortcut('H');
+        menu.add(0, MENU_HELP, 0, R.string.menu_help)
+            .setIcon(android.R.drawable.ic_menu_help)
+            .setIntent(help)
+            .setAlphabeticShortcut('H');
         }
         return true;
     }
