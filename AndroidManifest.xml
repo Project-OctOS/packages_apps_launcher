@@ -60,6 +60,13 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+    <!-- these two are only needed for the wallpaper picker -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
+    <uses-permission android:name="android.permission.BIND_WALLPAPER" />
+     
+    <!-- During development, run outside acore
+        android:process="android.process.acore"
+    -->
 
     <application
         android:name="com.android.launcher2.LauncherApplication"
@@ -85,18 +92,26 @@
         </activity>
 
         <activity
-            android:name="com.android.launcher2.WallpaperChooser"
-            android:theme="@style/Theme.WallpaperPicker"
+            android:name="WallpaperChooser"
             android:label="@string/pick_wallpaper"
-            android:icon="@mipmap/ic_launcher_wallpaper"
-            android:finishOnCloseSystemDialogs="true"
-            android:process=":wallpaper_chooser">
+            android:icon="@drawable/ic_launcher_wallpaper">
             <intent-filter>
                 <action android:name="android.intent.action.SET_WALLPAPER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <meta-data android:name="android.wallpaper.preview"
-                android:resource="@xml/wallpaper_picker_preview" />
+        </activity>
+
+        <!-- TODO: MOVE TO SETTINGS (or actually maybe to its own package) -->
+        <!-- Standard picker for live wallpapers -->
+        <activity android:name="LiveWallpaperPickActivity"
+                android:icon="@drawable/ic_launcher_appwidget"
+                android:label="@string/live_wallpaper_picker_title"
+                android:theme="@android:style/Theme.Wallpaper">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.LIVE_WALLPAPER_CHOOSER" />
+                <action android:name="android.intent.action.SET_WALLPAPER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
         <!-- Intent received used to prepopulate the default workspace. -->
