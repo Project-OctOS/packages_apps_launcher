@@ -35,6 +35,7 @@
         <favorite launcher:className="com.google.android.talk.SigningInActivity" launcher:packageName="com.google.android.talk" />
         <favorite launcher:className="com.android.calendar.AllInOneActivity" launcher:packageName="com.google.android.calendar" />
         <favorite launcher:className="com.android.contacts.activities.PeopleActivity" launcher:packageName="com.android.contacts" />
+        <favorite launcher:className="com.google.android.keep.BrowserActivity" launcher:packageName="com.google.android.keep" />
         <favorite launcher:className="com.google.android.apps.wallet.WalletRootActivity" launcher:packageName="com.google.android.apps.walletnfcrel" />
     </folder>
     <favorite launcher:className="com.android.vending.AssetBrowserActivity" launcher:packageName="com.android.vending" launcher:screen="2" launcher:x="3" launcher:y="3" />
