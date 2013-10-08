@@ -21,14 +21,13 @@ APPLICATION_COMPONENTS = [
   "com.android.mms/com.android.mms.ui.ConversationList",
   "com.android.contacts/com.android.contacts.activities.PeopleActivity",
   "com.android.dialer/com.android.dialer.DialtactsActivity",
-  "com.google.android.gallery3d/com.android.gallery3d.app.GalleryAppImpl",
   "com.android.gallery3d/com.android.gallery3d.app.GalleryAppImpl",
   "com.android.chrome/com.google.android.apps.chrome.Main"
   "com.google.android.apps.books/com.google.android.apps.books.app.BooksActivity",
   "com.android.gallery3d/com.android.camera.CameraActivity",
   "com.google.android.carhome/com.google.android.carhome.CarHome",
   "com.android.providers.downloads.ui/com.android.providers.downloads.ui.DownloadList",
-  "com.google.android.gallery3d/com.android.camera.CameraLauncher",
+  "com.android.gallery3d/com.android.gallery3d.app.GalleryAppImpl",
   "com.google.android.apps.maps/com.google.android.maps.MapsActivity"
 ]
 
